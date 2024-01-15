@@ -1,65 +1,27 @@
-<!DOCTYPE HTML>
-<html>
+Código fonte
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-<title>Backbone Cellar</title>
-<link rel="stylesheet" href="../css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+ 
+    <title>Fernando Cruz</title>
 </head>
-
 <body>
+    <div class="c">
+    <form action="index.html">
+        <p>Entra</p>
+        <input type="email" placeholder="Digite o seu email" ><br>
+        
+        <input type="password" placeholder="Digite a sua senha" ><br>
+       
+        <input type="button" a value="Entra"> <br>
+        <a href="#">Esquece a minha senha</a>
 
-<div id="header"><h1>Backbone Cellar</h1></div>
-
-<div id="sidebar"></div>
-
-<div id="content">
-<h2>Welcome to Backbone Cellar</h2>
-<p>
-This is a sample application part of of three-part tutorial showing how to build a CRUD application with Backbone.js.
-</p>
+    </form>
 </div>
 
-<!-- Templates -->
-<script type="text/template" id="tpl-header">
-    <span class="title">Backbone Cellar</span>
-	<button class="new">New Wine</button>
 </script>
-
-<script type="text/template" id="tpl-wine-list-item">
-	<a href='#wines/<%= id %>'><%= name %></a>
-</script>
-
-<script type="text/template" id="tpl-wine-details">
-
-    <div class="form-left-col">
-        <label>Id:</label>
-        <input type="text" id="wineId" name="id" value="<%= id %>" disabled />
-        <label>Name:</label>
-        <input type="text" id="name" name="name" value="<%= name %>" required/>
-        <label>Grapes:</label>
-        <input type="text" id="grapes" name="grapes" value="<%= grapes %>"/>
-        <label>Country:</label>
-        <input type="text" id="country" name="country" value="<%= country %>"/>
-        <label>Region:</label>
-        <input type="text" id="region" name="region"  value="<%= region %>"/>
-        <label>Year:</label>
-        <input type="text" id="year" name="year"  value="<%= year %>"/>
-        <button class="save">Save</button>
-        <button class="delete">Delete</button>
-    </div>
-
-    <div class="form-right-col">
-        <img height="300" src="../pics/<%= picture %>"/>
-        <label>Notes:</label>
-        <textarea id="description" name="description"><%= description %></textarea>
-    </div>
-
-</script>
-
-<!-- JavaScript -->
-<script src="../lib/jquery-1.7.1.min.js"></script>
-<script src="../lib/underscore-min.js"></script>
-<script src="../lib/backbone-min.js"></script>
-<script src="js/main.js"></script>   
-
 </body>
 </html>
