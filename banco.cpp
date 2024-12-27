@@ -52,15 +52,10 @@ int main (void) {
 			
 			defaut:
 			printf("Código inválido\n");
-						
+			
+			
 		}
 }
 	return 0;
 	
 }
-
-
-
-
-
-
