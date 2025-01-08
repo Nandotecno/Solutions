@@ -1,0 +1,15 @@
+import pandas as pd
+
+# Criando um pequeno dataset
+data = {
+    'Produto': ['A', 'B', 'C'],
+    'Vendas': [100, 200, None]
+}
+# Criando um DataFrame
+df = pd.DataFrame(data)
+# Lidando com valores ausentes (substituindo por 0)
+df['Vendas'] = df['Vendas'].fillna(0)
+# Adicionando uma nova coluna: Receita (Vendas x Preço fictício)
+df['Receita'] = df['Vendas'] * [10, 20, 30]
+# Mostrando o resultado
+print(df)
