@@ -1,0 +1,20 @@
+# Importando as bibliotecas necessárias
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Criando um dataset fictício
+data = {
+    "Data": pd.date_range(start="2023-01-01", periods=6, freq="M"),
+    "Categoria": ["Eletrônicos", "Móveis", "Roupas", "Eletrônicos", "Móveis", "Roupas"],
+    "Vendas": [1000, 850, 700, 1200, 1100, 900],
+}
+df = pd.DataFrame(data)
+# Agrupando as vendas por categoria
+vendas_por_categoria = df.groupby("Categoria")["Vendas"].sum()
+# Gráfico de barras: Vendas totais por categoria
+vendas_por_categoria.plot(kind="bar", color=["blue", "green", "orange"])
+plt.title("Vendas Totais por Categoria")
+plt.ylabel("Vendas")
+plt.xlabel("Categoria")
+plt.show()
+
