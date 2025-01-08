@@ -1,0 +1,16 @@
+import pandas as pd
+# 1. Extração (Extract): Criando um DataFrame simples com dados fictícios
+dados = {
+    'Nome': ['Ana', 'Bruno', 'Carlos', 'Daniel'],
+    'Idade': [23, 34, None, 45],  # 'None' é um valor ausente
+    'Salario': ['3000', '4000', '5000', '6000']  # Dados de salário com erro
+}
+# Criando o DataFrame
+df = pd.DataFrame(dados)
+# 2. Transformação (Transform): Limpando os dados
+df['Idade'] = df['Idade'].fillna(df['Idade'].mean())  # Substituindo valores ausentes
+df['Salario'] = pd.to_numeric(df['Salario'], errors='coerce')  # Corrigindo erro no salário
+# 3. Carregamento (Load): Salvando os dados limpos em um novo arquivo CSV
+df.to_csv('dados_limpos.csv', index=False)
+# Exibindo o DataFrame final
+print(df)
