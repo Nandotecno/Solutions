@@ -1,0 +1,16 @@
+from sklearn.linear_model import LinearRegression
+# Dados de exemplo
+X = df_sales[['Vendas', 'Desconto']]  # Variáveis independentes
+y = df_sales['Vendas com Desconto']  # Variável dependente
+# Criando e treinando o modelo de regressão linear
+model = LinearRegression()
+model.fit(X, y)
+# Fazendo previsões
+y_pred = model.predict(X)
+# Plotando os resultados
+plt.scatter(df_sales['Vendas'], df_sales['Vendas com Desconto'], color='blue')
+plt.plot(df_sales['Vendas'], y_pred, color='red')
+plt.title('Vendas com Desconto - Regressão Linear')
+plt.xlabel('Vendas')
+plt.ylabel('Vendas com Desconto')
+plt.show()
