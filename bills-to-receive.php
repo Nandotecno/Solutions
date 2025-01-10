@@ -32,16 +32,32 @@
 						<a href="payments-cash" class="color-white">PAGAMENTO CAIXA</a>
 						<a href="reports" class="color-white">RELATÓRIOS</a>
 					</p>
+					<div class="clear"></div>
 				</header>
-
-				<section class="bgcolor-white">
-					<h1 class="fontzero">Conteúdo do Site</h1>
-					<div class="espaco"></div>
+			</section>
+			
+			<section class="bgcolor-white section_main">
+				<h1 class="fontzero">Conteúdo do Site</h1>
+				<div class="espaco"></div>
+				
+				<p class="text-left font-text-light font-weight-heavy text-margin"><a href="receive-gerent" class="link-bgcolor-red-dark-b color-white close">Gerenciar Contas</a></p>
+				<div class="espaco-min"></div>
+				<p class="text-center font-text-hard-two font-weight-heavy">Contas a Receber</p>
+				
+				<form method="post">
+					<label class="font-weight-heavy font-text-light-extra">Descrição da Conta</label>
+					<input type="text" name="description" required class="border-1px font-text-light">
 					
-					<p class="text-center font-text-hard-extra font-weight-heavy">Sistema de Fluxo de Caixa</p>
+					<label class="font-weight-heavy font-text-light-extra">Valor da Conta </label>
+					<input type="text" name="value" required class="border-1px font-text-light">
 					
-					<div class="espaco-min"></div>
-				</section>
+					<label class="font-weight-heavy font-text-light-extra">Data de Vencimento</label><br>
+					<input type="date" name="date" required class="border-1px font-text-light">
+					
+					<button class="link-bgcolor-green-dark-b color-white font-weight-heavy" name="btn_send">Cadastrar Conta</button>
+				</form>
+				
+				<div class="espaco-min"></div>
 			</section>
 		</main>
 		

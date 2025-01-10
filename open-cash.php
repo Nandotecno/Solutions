@@ -32,17 +32,24 @@
 						<a href="payments-cash" class="color-white">PAGAMENTO CAIXA</a>
 						<a href="reports" class="color-white">RELATÓRIOS</a>
 					</p>
+					<div class="clear"></div>
 				</header>
-
-				<section class="bgcolor-white">
-					<h1 class="fontzero">Conteúdo do Site</h1>
-					<div class="espaco"></div>
-					
-					<p class="text-center font-text-hard-extra font-weight-heavy">Sistema de Fluxo de Caixa</p>
-					
-					<div class="espaco-min"></div>
-				</section>
 			</section>
+
+			<section class="bgcolor-white section_main">
+				<h1 class="fontzero">Conteúdo do Site</h1>
+				<div class="espaco"></div>
+				
+				<p class="text-center font-text-hard-two font-weight-heavy">Quanto há de dinheiro para a abertura do caixa?</p>
+				
+				<form method="post">
+					<input type="text" name="cash" required class="border-1px">
+					<button class="link-bgcolor-green-dark-b color-white font-weight-heavy" name="btn_open">Abrir Caixa</button>
+				</form>
+				
+				<div class="espaco-min"></div>
+			
+		</section>
 		</main>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
