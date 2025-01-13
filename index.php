@@ -1,58 +1,28 @@
 <?php
-	ob_start();
-	session_start();
-	$pages = "index";
-	include "includes/config.php";
-?>
-<!doctype html>
-<html lang="pt-br" itemscope itemtype="https://schema.org/WebSite">
-	<head>
-		<meta charset="utf-8">		
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<meta name="robots" content="index, follow"/>
-		<title><?= TITLE_SITE ?></title>
-		
-		<link rel="stylesheet" href="<?= URL ?>css/style.css">
-		<link rel="stylesheet" href="<?= URL ?>css/framework.css">
-		<link href="https://fonts.googleapis.com/css?family=<?= FONT_GOOGLE ?>" rel="stylesheet">
+require "../bootstrap.php";
 
-	</head>
-	
-	<body>
-		<main>
-			<section class="bgcolor-green-dark">
-				<header>
-					<h1 class="fontzero">Menu de Navegação</h1>
-					
-					<p class="text-center link-bgcolor-green-dark font-text-light-extra font-weight-heavy">
-						<a href="index" class="color-white">HOME</a>
-						<a href="open-cash" class="color-white">ABERTURA</a>
-						<a href="bills-to-pay" class="color-white">CONTAS A PAGAR</a>
-						<a href="bills-to-receive" class="color-white">CONTAS A RECEBER</a>
-						<a href="payments-cash" class="color-white">PAGAMENTO CAIXA</a>
-						<a href="reports" class="color-white">RELATÓRIOS</a>
-					</p>
-				</header>
+use Src\Controller\PersonController;
 
-				<section class="bgcolor-white">
-					<h1 class="fontzero">Conteúdo do Site</h1>
-					<div class="espaco"></div>
-					
-					<p class="text-center font-text-hard-extra font-weight-heavy">Sistema de Fluxo de Caixa</p>
-					
-					<div class="espaco-min"></div>
-				</section>
-			</section>
-		</main>
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="<?= URL ?>js/maskinput.js"></script>
-		<script src="<?= URL ?>js/function.js"></script>
-		<script src="<?= URL ?>js/jquery-money.js"></script>
-		
-	</body>
-	
-</html>
-<?php 
-		ob_end_flush(); 
-	?>
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri = explode('/', $uri);
+
+if ($uri[1] !== 'person') {
+  header("HTTP/1.1 404 Not Found");
+  exit();
+}
+
+$userId = null;
+if (isset($uri[2])) {
+  $userId = (int) $uri[2];
+}
+
+$requestMethod = $_SERVER['REQUEST_METHOD'];
+
+$controller = new PersonController($dbConnection, $requestMethod, $userId);
+$controller->processRequest();
